@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>模版生成</title>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+        <h4> 模版生成情况: </h4>
+        {% if boolTeamAndView %}
+            <table>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            {% for buildk,buildv in boolTeamAndView.items %}
+                <tr>
+                    <td>{{ buildk }}</td>
+                    {% if buildv == 'ok' %}
+                        <td style="color: blue">{{ buildv }}</td>
+                    {% else %}
+                        <td style="color: red">{{ buildv }}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </table>
+        {% else %}
+            没有模版或者HTML文件生成
+        {% endif %}
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>分配式服务端 [{{ distributedport }}]</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Photo-Hub Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/menu_jquery.js"></script>
+</head>
+<body>
+	<div class="header">	
+      <div class="container"> 
+  	     <div class="logo">
+			<h1><a href="/"><img class="logogo" src="/static/images/gogo5.png"></a></h1>
+		 </div>
+		 <div class="top_right">
+		   <ul>
+			<li><a href="register.html">Register</a></li>|
+			<li class="login" >
+				 <div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+					  <div id="loginBox">                
+						  <form id="loginForm">
+			                <fieldset id="body">
+			                	<fieldset>
+			                          <label for="email">Email Address</label>
+			                          <input type="text" name="email" id="email">
+			                    </fieldset>
+			                    <fieldset>
+			                            <label for="password">Password</label>
+			                            <input type="password" name="password" id="password">
+			                     </fieldset>
+			                    <input type="submit" id="login" value="Sign in">
+			                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+			            	</fieldset>
+			                 <span><a href="#">Forgot your password?</a></span>
+						   </form>
+				        </div>
+			      </div>
+			  </li>
+		   </ul>
+	     </div>
+		 <div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="banner_search">
+		<div class="container">
+			<h3>分配式服务端:</h3><br>
+            <a href="/distributed?distributedport={{ distributedport }}&openwatch=on" style="color: blue">开启服务端</a>&nbsp&nbsp&nbsp&nbsp<a href="/distributed?distributedport={{ distributedport }}&openwatch=off" style="color: red">关闭服务端</a>
+            &nbsp&nbsp&nbsp&nbsp<a href="/distributed?distributedport={{ distributedport }}&openwatch=flush" style="color: #a6e1ec">刷新显示最新监控状态</a><br><br>
+            {% if errorstatuserver_distribu %}{{ errorstatuserver_distribu }}
+            {% elif distributcpserver.ip %}IP:{{ distributcpserver.ip }} port:{{ distributcpserver.port }} [已开启]<br/><br/>
+            {% elif distributed_tcpserveroff%}{{ distributed_tcpserveroff }}<br/><br/>
+            {% elif distributed_tcpclinend %}{{ distributed_tcpclinend }}<br/><br/>{% endif %}
+            {% for sk,sv in distribuServer.items %}{{ sk }} {% if sv != 'NO' %}<span style="color: blue">已分配响应端口 {{ sv }}</span><br>{% else %}<span style="color: red">未分配</span><br>{% endif %}{% endfor %}
+        </div>
+	</div>
+	<div class="grid_3">
+	  <div class="container">
+	  	 <ul id="footer-links">
+			<li><a href="#">href1</a></li>
+			<li><a href="#">href2</a></li>
+			<li><a href="#">href3</a></li>
+			<li><a href="#">href4</a></li>
+			<li><a href="support.html">href5</a></li>
+			<li><a href="about.html">href6</a></li>
+			<li><a href="faq.html">href7</a></li>
+			<li><a href="#">href8</a></li>
+         </ul>
+         <p>XMSInterface <a target="_blank" href="https://www.foxhis.com/">西软官网</a></p>
+	  </div>
+	</div>
+</body>
+</html>		

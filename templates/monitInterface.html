@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>酒店接口监控</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Photo-Hub Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/menu_jquery.js"></script>
+</head>
+<body>
+	<div class="header">	
+      <div class="container"> 
+  	     <div class="logo">
+			<h1><a href="/"><img class="logogo" src="/static/images/gogo5.png"></a></h1>
+		 </div>
+		 <div class="top_right">
+		   <ul>
+			<li><a href="register.html">Register</a></li>|
+			<li class="login" >
+				 <div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+					  <div id="loginBox">                
+						  <form id="loginForm">
+			                <fieldset id="body">
+			                	<fieldset>
+			                          <label for="email">Email Address</label>
+			                          <input type="text" name="email" id="email">
+			                    </fieldset>
+			                    <fieldset>
+			                            <label for="password">Password</label>
+			                            <input type="password" name="password" id="password">
+			                     </fieldset>
+			                    <input type="submit" id="login" value="Sign in">
+			                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+			            	</fieldset>
+			                 <span><a href="#">Forgot your password?</a></span>
+						   </form>
+				        </div>
+			      </div>
+			  </li>
+		   </ul>
+	     </div>
+		 <div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="banner_search">
+		<div class="container">
+			<h3>酒店监控接口:</h3><br/>
+            <table>
+              <tr >
+                <th  style="width: 200px; height: 40px">酒店名</th>
+                <th  style="width: 200px; height: 40px">接口</th>
+                <th  style="width: 200px; height: 40px">开启状态ON/OFF</th>
+                <th  style="width: 200px; height: 40px">连接状态</th>
+                <th  style="width: 200px; height: 40px">端口</th>
+              </tr>
+              {% for statusInterfacemonitInterface in statusInterface_monitInterface%}
+              <tr>
+                <td><a href='#'>{{ statusInterfacemonitInterface.hootelname.hootelname }}</a></td>
+                <td><a href="/search_detail?brandversionid={{ statusInterfacemonitInterface.hootelname.verison.id }}">{{ statusInterfacemonitInterface.hootelname.verison }}</a></td>
+                <td><span style="color: #3e8f3e">{{ statusInterfacemonitInterface.hootelname.booleaninter }}</span></td>
+                <td>{{ statusInterfacemonitInterface.sjdinterfacesta}}</td>
+                <td>{{ statusInterfacemonitInterface.port }}</td>
+              </tr>
+              {% endfor %}
+            </table>
+        </div>
+	</div>
+	<div class="grid_3">
+	  <div class="container">
+	  	 <ul id="footer-links">
+			<li><a href="#">href1</a></li>
+			<li><a href="#">href2</a></li>
+			<li><a href="#">href3</a></li>
+			<li><a href="#">href4</a></li>
+			<li><a href="support.html">href5</a></li>
+			<li><a href="about.html">href6</a></li>
+			<li><a href="faq.html">href7</a></li>
+			<li><a href="#">href8</a></li>
+         </ul>
+         <p>XMSInterface <a target="_blank" href="https://www.foxhis.com/">西软官网</a></p>
+	  </div>
+	</div>
+</body>
+</html>		

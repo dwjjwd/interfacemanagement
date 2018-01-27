@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>分布式服务</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Photo-Hub Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/menu_jquery.js"></script>
+</head>
+<body>
+	<div class="header">	
+      <div class="container"> 
+  	     <div class="logo">
+			<h1><a href="/"><img class="logogo" src="/static/images/gogo5.png"></a></h1>
+		 </div>
+		 <div class="top_right">
+		   <ul>
+			<li><a href="register.html">Register</a></li>|
+			<li class="login" >
+				 <div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+					  <div id="loginBox">                
+						  <form id="loginForm">
+			                <fieldset id="body">
+			                	<fieldset>
+			                          <label for="email">Email Address</label>
+			                          <input type="text" name="email" id="email">
+			                    </fieldset>
+			                    <fieldset>
+			                            <label for="password">Password</label>
+			                            <input type="password" name="password" id="password">
+			                     </fieldset>
+			                    <input type="submit" id="login" value="Sign in">
+			                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+			            	</fieldset>
+			                 <span><a href="#">Forgot your password?</a></span>
+						   </form>
+				        </div>
+			      </div>
+			  </li>
+		   </ul>
+	     </div>
+		 <div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="banner_search">
+		<div class="container">
+			<h3>服务端:</h3><br>
+            <span style="background-color: blue;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span> 正常
+            <span style="background-color: #fc5b0c;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span> 连接已满
+            <span style="background-color: #788688;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span> 未开启<br><br>
+            <b>分配式服务端: </b>{% for stk,stv in statuTCPserver_distribu.items%}<a {% if stv == 'on' %} href="/distributed?distributedport={{ stk.port }}" style=" color: blue"{% elif stv == 'max'%} href="/distributed?distributedport={{ stk.port }}" style=" color: #fc5b0c" {% else %} style=" color: #788688" href='/distributed?distributedport={{ stk.port }}' title="该端口未开启"{% endif %}  target="_blank">[{{ stk.ip }}: {{ stk.port }}]</a>&nbsp&nbsp&nbsp&nbsp{% endfor %}<br><br>
+            <b>响应式服务端: </b>{% for stk,stv in statuTCPserver_response.items%}<a {% if stv == 'on' %} href="/distributed?watchport={{ stk.port }}" style=" color: blue"{% elif stv == 'max'%} href="/distributed?watchport={{ stk.port }}" style=" color: #fc5b0c" {% else %} style=" color: #788688" href='/distributed?watchport={{ stk.port }}' title="该端口未开启"{% endif %}  target="_blank">[{{ stk.ip }}: {{ stk.port }}]</a>&nbsp&nbsp&nbsp&nbsp{% endfor %}<br><br>
+            {% if statuTCPserver_booleanTemplate %}<b>未生成模版的客户端: </b>{% for stk,stv in statuTCPserver_booleanTemplate.items%}{{ stk.ip }}:{{ stk.port }}&nbsp&nbsp&nbsp&nbsp{% endfor %}{% endif %}<br><br>
+            <a href="/buildresponserver/" target="_blank">生成模版和客户端文件</a>
+        </div>
+	</div>
+	<div class="grid_3">
+	  <div class="container">
+	  	 <ul id="footer-links">
+			<li><a href="#">href1</a></li>
+			<li><a href="#">href2</a></li>
+			<li><a href="#">href3</a></li>
+			<li><a href="#">href4</a></li>
+			<li><a href="support.html">href5</a></li>
+			<li><a href="about.html">href6</a></li>
+			<li><a href="faq.html">href7</a></li>
+			<li><a href="#">href8</a></li>
+         </ul>
+         <p>XMSInterface <a target="_blank" href="https://www.foxhis.com/">西软官网</a></p>
+	  </div>
+	</div>
+</body>
+</html>		
